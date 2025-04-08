@@ -65,26 +65,58 @@ public class PrimeNumberChecker {
         return true;
     }
 	
-	
-	
-	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-		Scanner sc=new Scanner(System.in);
-		int no;
-		System.out.println("enter a positive integer : ");
-		no=sc.nextInt();
-		boolean ans=PrimeNumberChecker.isPrime(no);
 		
-		if(ans)
-		{
-			System.out.println(no+ " is prime number");
+		Scanner sc=new Scanner(System.in);
+		int no,ch;
+		
+		System.out.println("1 - check a single number or a range?");
+	    System.out.println("2 - find prime numbers within range:");
+		
+	    System.out.println("Enter Your choice: ");
+	    ch=sc.nextInt();
+	    
+	    switch (ch) 
+	    {
+			case 1: 
+				System.out.println("enter a positive integer : ");
+				no=sc.nextInt();
+				boolean ans=PrimeNumberChecker.isPrime(no);
+			
+				if(ans)
+				{
+					System.out.println(no+ " is prime number");
+				}
+				else
+				{
+					System.out.println(no +" is not a prime number");
+				}
+				break;
+			
+			case 2:
+				System.out.print("Enter starting number of the range: ");
+	            int start = sc.nextInt();
+
+	            System.out.print("Enter ending number of the range: ");
+	            int end = sc.nextInt();
+
+	            System.out.println("Prime numbers between " + start + " and " + end + " are:");
+
+	            for (int i = start; i <= end; i++) 
+	            {
+	                if (isPrime(i)) 
+	                {
+	                    System.out.print(i + " ");
+	                }
+	            }
+	            System.out.println(); 
+	            break;
+	
+		default:
+			System.out.println("Invalid choice");
+			break;
 		}
-		else
-		{
-			System.out.println(no +" is not a prime number");
-		}
+	    
 	}
 
 }
